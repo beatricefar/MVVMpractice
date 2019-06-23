@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">MVVMpractice</string>
     <string name="action_settings">Settings</string>
+    <string name="spendings_amount_hint">Spendings amount</string>
+    <string name="tax_percentage_hint">Tax Percentage</string>
+    <string name="spendings_amount">Spendings amount</string>
+    <string name="tax_amount">Tax Amount</string>
+    <string name="grand_total">Grand Total</string>
 </resources>
