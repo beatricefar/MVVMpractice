@@ -1,11 +1,15 @@
 package com.beatricefarias.mvvmpractice.view
 
+import android.app.Application
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.get
 import com.beatricefarias.mvvmpractice.R
 import com.beatricefarias.mvvmpractice.databinding.ActivityMainBinding
 import com.beatricefarias.mvvmpractice.viewmodel.TaxCalculationViewModel
@@ -19,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.viewModel = TaxCalculationViewModel(application)
+        binding.viewModel = ViewModelProviders.of(this).get(TaxCalculationViewModel::class.java)
         setSupportActionBar(binding.toolbar)
 
         fab.setOnClickListener { view ->

@@ -1,15 +1,14 @@
 package com.beatricefarias.mvvmpractice.viewmodel
 
 import android.app.Application
-import androidx.databinding.BaseObservable
 import com.beatricefarias.mvvmpractice.R
 import com.beatricefarias.mvvmpractice.model.CountryTaxCalculator
 import com.beatricefarias.mvvmpractice.model.TaxCalculation
 
-class TaxCalculationViewModel(
-    private val application: Application,
+class TaxCalculationViewModel @JvmOverloads constructor(
+    app: Application,
     private val countryTaxCalculator: CountryTaxCalculator = CountryTaxCalculator()
-): BaseObservable() {
+): ObservableViewModel(app) {
 
     var spendingAmount = ""
     var taxPercentage = ""
@@ -25,9 +24,9 @@ class TaxCalculationViewModel(
     }
 
     private fun updateOutputs(taxCalculation: TaxCalculation) {
-        outputPriceBeforeTax = application.getString(R.string.dollar_amount, taxCalculation.priceBeforeTax)
-        outputTaxAmount = application.getString(R.string.dollar_amount, taxCalculation.taxAmount)
-        outputGrandTotal = application.getString(R.string.dollar_amount, taxCalculation.grandTotal)
+        outputPriceBeforeTax = getApplication<Application>().getString(R.string.dollar_amount, taxCalculation.priceBeforeTax)
+        outputTaxAmount = getApplication<Application>().getString(R.string.dollar_amount, taxCalculation.taxAmount)
+        outputGrandTotal = getApplication<Application>().getString(R.string.dollar_amount, taxCalculation.grandTotal)
     }
 
     fun calculateTax() {

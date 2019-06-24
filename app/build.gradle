@@ -42,5 +42,5 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
     implementation "androidx.core:core-ktx:$kotlin_extension_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 }
